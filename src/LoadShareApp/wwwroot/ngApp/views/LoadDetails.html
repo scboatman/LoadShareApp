@@ -1,0 +1,78 @@
+<h1>Your List Of Available Loads</h1>
+
+<table class="table table-bordered table-striped">
+    <thread>
+        <tr>
+            <th>Age</th>
+            <th>Miles</th>
+            <th>Origin</th>
+            <th>State</th>
+            <th>Destination</th>
+            <th>State</th>
+            <th>Trailer</th>
+            <th>Load Size</th>
+            <th>Length</th>
+            <th>Weight</th>
+            <th>Pay Rate</th>
+            <th>Ship Date</th>
+            <th>Company</th>
+            <th>Make a Selection</th>
+            <!--<th>Action</th>-->
+
+        </tr>
+    </thread>
+
+
+    <tbody>
+        <tr ng-  ="load in c.loads">
+            <td>{{load.age}}</td>
+            <td>{{load.miles}}</td>
+            <td>{{load.origin}}</td>
+            <td>{{load.originState}}</td>
+            <td>{{load.destination}}</td>
+            <td>{{load.destinationState}}</td>
+            <td>{{load.trailerType}}</td>
+            <td>{{load.loadSize}}</td>
+            <td>{{load.length}}</td>
+            <td>{{load.weight}}</td>
+            <td>{{load.payRate}}</td>
+            <td>{{load.shipDate}}</td>
+            <td>{{load.company}}</td>
+            <!--<td><a ng-href="/loadDetails/{load.id}" class="btn btn-success">Select</a></td>-->
+            <!--<td><a ng-href="/deleteMovie/{{movie.id}}" class="btn btn-primary">Delete</a></td>-->
+        </tr>
+    </tbody>
+</table>
+
+<h1>Want To Add a Truck for Shippers to see?</h1>
+<form ng-submit="c.save()">
+    <div>
+        <label>Origin</label>
+        <input placeholder="Origin City" ng-model="c.truck.origin" />
+    </div>
+    <div>
+        <label>Destination</label>
+        <input placeholder="Destination City" ng-model="c.truck.destination" />
+
+
+    </div>
+    <div>
+        <label>Trailer</label>
+        <input placeholder="R or V" ng-model="c.truck.trailerType" />
+
+    </div>
+    <div>
+        <label>Pick Up By</label>
+        <input placeholder="Pick Up Date (ex. Dec 12 )" ng-model="c.truck.shipDate" />
+
+    </div>
+    <div>
+        <label>Company</label>
+        <input placeholder="Company (ex. Dec 12 )" ng-model="c.truck.company" />
+
+    </div>
+    <input type="submit" class="btn btn-primary" value="Add Truck" />
+
+
+
+</form>

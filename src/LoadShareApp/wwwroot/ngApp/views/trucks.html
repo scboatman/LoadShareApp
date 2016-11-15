@@ -1,0 +1,40 @@
+<h2>Trucks</h2>
+<p>
+    {{c.message}}
+</p>
+<!--//1st attempt to add dropdown-->
+<table class="table table-bordered table-striped">
+    <thread>
+        <tr>
+            <th>Origin</th>
+            <th>State</th>
+            <th>Destination</th>
+            <th>State</th>
+            <th>Trailer</th>
+            <th>Ship Date</th>
+            <th>Company</th>
+            <th>Make a Selection</th>
+            <!--<th>Action</th>-->
+
+        </tr>
+    </thread>
+
+
+    <tbody>
+        <tr ng-repeat="truck in c.trucks">
+            <td>{{truck.origin}}</td>
+            <td>{{truck.originState}}</td>
+            <td>{{truck.destination}}</td>
+            <td>{{truck.destinationState}}</td>
+            <td>{{truck.trailerType}}</td>
+            <td>{{truck.shipDate}}</td>
+            <td>{{truck.company}}</td>
+            <td><a ng-href="/truckDetails/{{truck.id}}" class="btn btn-success">Select</a></td>
+            <!--<td><a ng-href="/deleteMovie/{{movie.id}}" class="btn btn-primary">Delete</a></td>-->
+        </tr>
+    </tbody>
+</table>
+<h1>Would You Like To Add A Load For Drivers to See?</h1>
+<a ui-sref="truckDetails" class="btn btn-primary">
+    Add Load
+</a>
