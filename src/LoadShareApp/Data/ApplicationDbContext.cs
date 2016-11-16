@@ -16,6 +16,7 @@ namespace LoadShareApp.Data
         }
         public DbSet<Truck> Trucks { get; set; }
         public DbSet<Load> Loads { get; set; }
+        public DbSet<Location> Locations { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

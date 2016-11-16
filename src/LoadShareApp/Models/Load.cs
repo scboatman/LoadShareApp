@@ -21,5 +21,7 @@ namespace LoadShareApp.Models
         public decimal PayRate { get; set; }
         public string ShipDate { get; set; }
         public string Company { get; set; }
+        public Location Origins { get; set; }
+
     }
 }

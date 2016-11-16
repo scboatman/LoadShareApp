@@ -1,0 +1,41 @@
+﻿<form ng-submit="c.saveTruck()">
+    <div>
+        <label>Origin</label>
+        <input placeholder="Origin City" ng-model="c.truck.origin" />
+    </div>
+    <div>
+        <label>State</label>
+        <input placeholder="Origin City" ng-model="c.truck.originState" />
+    </div>
+    <div>
+        <label>Destination</label>
+        <input placeholder="Destination City" ng-model="c.truck.destination" />
+
+
+    </div>
+    <div>
+        <label>State</label>
+        <input placeholder="Destination City" ng-model="c.truck.destinationState" />
+
+
+    </div>
+    <div>
+        <label>Trailer</label>
+        <input placeholder="R or V" ng-model="c.truck.trailerType" />
+
+    </div>
+    <div>
+        <label>Pick Up By</label>
+        <input placeholder="Pick Up Date (ex. Dec 12 )" ng-model="c.truck.shipDate" />
+
+    </div>
+    <div>
+        <label>Company</label>
+        <input placeholder="Company (ex. Dec 12 )" ng-model="c.truck.company" />
+
+    </div>
+    <input type="submit" class="btn btn-primary" value="Add Truck" />
+
+
+
+</form>

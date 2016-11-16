@@ -8,9 +8,10 @@ using LoadShareApp.Data;
 namespace LoadShareApp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20161115221638_Origin")]
+    partial class Origin
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.0-rtm-21431")
@@ -88,8 +89,6 @@ namespace LoadShareApp.Data.Migrations
 
                     b.Property<string>("OriginState");
 
-                    b.Property<int?>("OriginsId");
-
                     b.Property<decimal>("PayRate");
 
                     b.Property<string>("ShipDate");
@@ -100,21 +99,7 @@ namespace LoadShareApp.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("OriginsId");
-
                     b.ToTable("Loads");
-                });
-
-            modelBuilder.Entity("LoadShareApp.Models.Location", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Name");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Locations");
                 });
 
             modelBuilder.Entity("LoadShareApp.Models.Truck", b =>
@@ -132,15 +117,11 @@ namespace LoadShareApp.Data.Migrations
 
                     b.Property<string>("OriginState");
 
-                    b.Property<int?>("OriginsId");
-
                     b.Property<string>("ShipDate");
 
                     b.Property<string>("TrailerType");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("OriginsId");
 
                     b.ToTable("Trucks");
                 });
@@ -250,20 +231,6 @@ namespace LoadShareApp.Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
-                });
-
-            modelBuilder.Entity("LoadShareApp.Models.Load", b =>
-                {
-                    b.HasOne("LoadShareApp.Models.Location", "Origins")
-                        .WithMany("Loads")
-                        .HasForeignKey("OriginsId");
-                });
-
-            modelBuilder.Entity("LoadShareApp.Models.Truck", b =>
-                {
-                    b.HasOne("LoadShareApp.Models.Location", "Origins")
-                        .WithMany("Trucks")
-                        .HasForeignKey("OriginsId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRoleClaim<string>", b =>

@@ -16,30 +16,29 @@
             <th>Pay Rate</th>
             <th>Ship Date</th>
             <th>Company</th>
-            <th>Make a Selection</th>
-            <!--<th>Action</th>-->
+           
+           
 
         </tr>
     </thread>
 
 
     <tbody>
-        <tr ng-  ="load in c.loads">
-            <td>{{load.age}}</td>
-            <td>{{load.miles}}</td>
-            <td>{{load.origin}}</td>
-            <td>{{load.originState}}</td>
-            <td>{{load.destination}}</td>
-            <td>{{load.destinationState}}</td>
-            <td>{{load.trailerType}}</td>
-            <td>{{load.loadSize}}</td>
-            <td>{{load.length}}</td>
-            <td>{{load.weight}}</td>
-            <td>{{load.payRate}}</td>
-            <td>{{load.shipDate}}</td>
-            <td>{{load.company}}</td>
-            <!--<td><a ng-href="/loadDetails/{load.id}" class="btn btn-success">Select</a></td>-->
-            <!--<td><a ng-href="/deleteMovie/{{movie.id}}" class="btn btn-primary">Delete</a></td>-->
+        <tr ng-model="c.loads">
+            <td>{{c.load.age}}</td>
+            <td>{{c.load.miles}}</td>
+            <td>{{c.load.origin}}</td>
+            <td>{{c.load.originState}}</td>
+            <td>{{c.load.destination}}</td>
+            <td>{{c.load.destinationState}}</td>
+            <td>{{c.load.trailerType}}</td>
+            <td>{{c.load.loadSize}}</td>
+            <td>{{c.load.length}}</td>
+            <td>{{c.load.weight}}</td>
+            <td>{{c.load.payRate}}</td>
+            <td>{{c.load.shipDate}}</td>
+            <td>{{c.load.company}}</td>
+           
         </tr>
     </tbody>
 </table>

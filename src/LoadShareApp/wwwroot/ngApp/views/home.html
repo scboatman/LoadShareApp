@@ -1,8 +1,10 @@
 <h2>Admin Page</h2>
 
-<h2>Trucks</h2>
+<<h2>Trucks</h2>
+<a ui-sref="addTruck" class="btn btn-primary">
+    Add Truck
+</a>
 
-<form ng-show="c.save()">
     <table class="table table-bordered table-striped">
         <thread>
             <tr>
@@ -13,11 +15,15 @@
                 <th>Trailer</th>
                 <th>Ship Date</th>
                 <th>Company</th>
+                <th>Action</th>
+                <th>Action</th>
             </tr>
+            </thread>
 
 
+            <thread>
             <tbody>
-                <tr>
+                <tr ng-repeat="truck in c.trucks">
                     <td>{{truck.origin}}</td>
                     <td>{{truck.originState}}</td>
                     <td>{{truck.destination}}</td>
@@ -25,23 +31,20 @@
                     <td>{{truck.trailerType}}</td>
                     <td>{{truck.shipDate}}</td>
                     <td>{{truck.company}}</td>
-                    <!--<td><a ui-sref="/truckdetails/{{truck.id}}" class="btn btn-danger">Select</a></td>-->
-                    <!--<td><a ng-href="/deleteMovie/{{truck.id}}" class="btn btn-primary">Delete</a></td>-->
+                    <td><a ng-href="/editTruck/{{truck.id}}" class="btn btn-danger">Edit</a></td>
+                    <<td><a ng-href="/deleteTruck/{{truck.id}}" class="btn btn-primary">Delete</a></td>
                 </tr>
             </tbody>
         </thread>
     </table>
 
 
-</form>
-<ul>
-    <li ng-repeat="trucks in c.trucks">
-        {{truck.origin}}
-    </li>
-</ul>
+
 
 <h2>Loads</h2>
-<form ng-show="c.save()">
+<a ui-sref="addLoad" class="btn btn-primary">
+    Add Load
+</a>
     <table class="table table-bordered table-striped">
         <thread>
             <tr>
@@ -58,8 +61,10 @@
                 <th>Pay Rate</th>
                 <th>Ship Date</th>
                 <th>Company</th>
-                <th>Make a Selection</th>
-                <!--<th>Action</th>-->
+                <th>Action</th>
+                <th>Action</th>
+             
+                
 
             </tr>
 
@@ -79,12 +84,13 @@
                     <td>{{load.payRate}}</td>
                     <td>{{load.shipDate}}</td>
                     <td>{{load.company}}</td>
-                    <td><a ng-href="/loadkDetails/{{load.id}}" class="btn btn-success">Select</a></td>
-                    <!--<td><a ng-href="/deleteMovie/{{movie.id}}" class="btn btn-primary">Delete</a></td>-->
+                    <td><a ng-href="/editLoad/{{load.id}}" class="btn btn-danger">Edit</a></td>
+                    <td><a ng-href="/deleteLoad/{{load.id}}" class="btn btn-primary">Delete</a></td>
                 </tr>
             </tbody>
         </thread>
     </table>
 
 
-</form>
+
+

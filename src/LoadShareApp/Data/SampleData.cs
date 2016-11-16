@@ -18,6 +18,22 @@ namespace LoadShareApp.Data
             // Ensure db
             context.Database.EnsureCreated();
 
+            //Ensure Mr. Boatman (isAdmin)
+            var stephenB = await userManager.FindByNameAsync("Stephen C. Boatman");
+            if (stephenB == null)
+            {
+                stephenB = new ApplicationUser
+                {
+                    UserName = "scboatman",
+                    Email = "scboatman@outlook.com"
+                };
+
+                await userManager.CreateAsync(stephenB, "Viper133!");
+
+                await userManager.AddClaimAsync(stephenB, new Claim("IsAdmin", "true"));
+
+            }
+
             // Ensure Stephen (IsAdmin)
             var stephen = await userManager.FindByNameAsync("Stephen.Walther@CoderCamps.com");
             if (stephen == null)
