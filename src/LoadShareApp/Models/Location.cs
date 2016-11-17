@@ -10,6 +10,7 @@ namespace LoadShareApp.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public ICollection<Load> Loads { get; set; }
-        public ICollection<Truck> Trucks { get; set; }
+        public string Origin { get; internal set; }
+        public string Destination { get; internal set; }
     }
 }

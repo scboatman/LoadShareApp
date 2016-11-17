@@ -39,21 +39,19 @@ namespace LoadShareApp.Controllers {
 
         }
 
-        //controller for post Truck modal
-        addLoadModal(load) {
+        //Load Modal Contrroller
+        public loadModal(loadId) {
             this.$uibModal.open({
-
-                templateUrl: '/ngapp/views/modals/createLoad.html',
-                controller: LoadShareApp.Controllers.AddLoadController,
+                templateUrl: '/ngApp/views/modals/loadModal.html',
+                controller: LoadShareApp.Controllers.LoadModalController,
                 controllerAs: 'c',
                 resolve: {
-                    load: () => load
+                    loadId: () => loadId
                 },
                 size: 'lg'
-            }).closed.then(() => {
-
             });
         }
+        //end Load MOdal Controller
         public getTruck(id: number) {
             this.trucks = this.TruckResource.get({ id: id });
         }
@@ -76,22 +74,19 @@ namespace LoadShareApp.Controllers {
         public getLoads() {
             this.loads = this.LoadResource.query()
         }
-        //controller for post Load modal
-        addTruckModal(load) {
+        //TruckModal>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+        public truckModal(truckId) {
             this.$uibModal.open({
-
-                templateUrl: '/ngapp/views/loadDetails.html',
-                controller: 'AddLoadController',
+                templateUrl: '/ngApp/views/modals/truckModal.html',
+                controller: LoadShareApp.Controllers.TruckModalController,
                 controllerAs: 'c',
                 resolve: {
-                    load: () => load
+                    truckId: () => truckId
                 },
                 size: 'lg'
-            }).closed.then(() => {
-                this.getLoads();
             });
         }
-
+        //End TruckModal>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         constructor(private $resource: angular.resource.IResourceService,
             public $stateParams: ng.ui.IStateParamsService,
             private $state: ng.ui.IStateService,
@@ -110,45 +105,96 @@ namespace LoadShareApp.Controllers {
             this.truck = this.TruckDetailResource.get({ id: id });
             console.log(this.truck);
         }
-
-
+        
         public save() {
             this.TruckDetailResource.save(this.truck).$promise.then(() => {
                 console.log(this.truck);
                 this.truck = null;
                 this.$state.go('truckDetails');
             })
+        }       
+
+
+        //Post the load from TruckDetails Page after making changes
+        private LoadResource;
+        public load;
+        public saveLoad() {
+            this.LoadResource.save(this.load).$promise.then(() => {
+                this.load = null;
+                this.$state.go(`truckDetails`);
+            })
         }
 
+        //Load Modal Contrroller
+        public loadModal(loadId) {
+            this.$uibModal.open({
+                templateUrl: '/ngApp/views/modals/loadModal.html',
+                controller: LoadShareApp.Controllers.LoadModalController,
+                controllerAs: 'c',
+                resolve: {
+                    loadId: () => loadId
+                },
+                size: 'lg'
+            });
+        }
+        //end Load MOdal Controller
         constructor(private $resource: angular.resource.IResourceService,
             public $stateParams: ng.ui.IStateParamsService,
-            private $state: ng.ui.IStateService) {
+            private $state: ng.ui.IStateService,
+            private $uibModal: angular.ui.bootstrap.IModalService) {//LoadMOdal logic
             this.TruckDetailResource = this.$resource('/api/trucks/:id');
             this.getTruck($stateParams["id"]);
+            this.LoadResource = $resource('/api/loads/:id');
+            
 
         }
     }
     export class LoadDetailController {
-        public LoadDetailResource;
+        public LoadResource;
         public load;
         public getLoad(id: number) {
-            this.load = this.LoadDetailResource.get({ id: id });
+            this.load = this.LoadResource.get({ id: id });
 
         }
+        //Post the truck after making changes
+        private TruckResource;
+        public truck;
+        
+        public saveTruck() {
+            this.TruckResource.save(this.truck).$promise.then(() => {
+                this.truck = null;
+                this.$state.go(`loadDetails`);
+            })
+        }
+       
 
         public save() {
-            this.LoadDetailResource.save(this.load).$promise.then(() => {
+            this.LoadResource.save(this.load).$promise.then(() => {
                 this.load = null;
                 this.getLoad(this.load);
             })
         }
-
+        //TruckModal>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+        public truckModal(truckId) {
+            this.$uibModal.open({
+                templateUrl: '/ngApp/views/modals/truckModal.html',
+                controller: LoadShareApp.Controllers.TruckModalController,
+                controllerAs: 'c',
+                resolve: {
+                    truckId: () => truckId
+                },
+                size: 'lg'
+            });
+        }
+        //End TruckModal>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         constructor(private $resource: angular.resource.IResourceService,
             public $stateParams: ng.ui.IStateParamsService,
-            private $state: ng.ui.IStateService) {
-            this.LoadDetailResource = this.$resource('/api/loads/:id');
+            private $state: ng.ui.IStateService,
+            private $uibModal: angular.ui.bootstrap.IModalService) {//TruckModal>>>>>>>>>>>>>>>>>>>>
+            this.LoadResource = this.$resource('/api/loads/:id');
             this.getLoad($stateParams["id"]);
-
+            this.TruckResource = $resource('/api/trucks/:id');
+            
         }
     }
     export class AddLoadController {
@@ -299,16 +345,92 @@ namespace LoadShareApp.Controllers {
             })
         }
     }
+    export class TruckModalController {
+        public truck;
+        public TruckResource;
+
+        public save() {
+            this.TruckResource.save(this.truck).$promise.then(() => {
+                this.truck = null;
+                this.$state.go('home');
+            });
+        }
+
+
+        //Post the truck after making changes
+        public saveTruck() {
+            this.TruckResource.save(this.truck).$promise.then(() => {
+                this.truck = null;
+                this.$state.go(`loadDetails`);
+            })
+        }
+        //////TruckModal>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+        public ok() {
+            this.$uibModalInstance.close();
+        }
+        constructor(
+            private $resource: angular.resource.IResourceService,
+            public $stateParams: ng.ui.IStateParamsService,
+            private $state: ng.ui.IStateService,
+            private $uibModalInstance: angular.ui.bootstrap.IModalServiceInstance) {///////TruckMOdal Logic
+            this.TruckResource = $resource('/api/trucks');
+        }
+    }
+    
+    export class LoadModalController {
+        public load;
+        public Loads;
+        public LoadResource;
+        public save() {
+            this.LoadResource.save(this.load).$promise.then(() => {
+                this.load = null;
+                this.$state.go('home');
+            });
+        }
+        ///LoadModal>>>>>>>>>>>>>>>>
+        public ok() {
+            this.$uibModalInstance.close();
+        }
+        //Post the movie after making changes
+        public saveLoad() {
+            this.LoadResource.save(this.load).$promise.then(() => {
+                this.load = null;
+                this.$state.go(`truckDetails`);
+            })
+        }
+        
+        constructor(
+            private $resource: angular.resource.IResourceService,
+            public $stateParams: ng.ui.IStateParamsService,
+            private $state: ng.ui.IStateService,
+            private $uibModalInstance: angular.ui.bootstrap.IModalServiceInstance) {
+            this.LoadResource = $resource('/api/loads');
+        }
+
+
+
+    }
     export class SecretController {
-        public secrets;
+        public locations;
+        public LoadResource;
+        public loads;
+        public getLoads() {
+            this.loads = this.LoadResource.query()
+        }
+
 
         constructor($http: ng.IHttpService) {
             $http.get('/api/secrets').then((results) => {
-                this.secrets = results.data;
+                this.locations = results.data;
             });
         }
     }
+    export class ProfileController {
+
+    }
+
 }
+
 
 
 

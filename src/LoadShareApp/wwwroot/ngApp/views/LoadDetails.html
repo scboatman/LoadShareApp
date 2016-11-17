@@ -42,36 +42,16 @@
         </tr>
     </tbody>
 </table>
-
-<h1>Want To Add a Truck for Shippers to see?</h1>
-<form ng-submit="c.save()">
-    <div>
-        <label>Origin</label>
-        <input placeholder="Origin City" ng-model="c.truck.origin" />
-    </div>
-    <div>
-        <label>Destination</label>
-        <input placeholder="Destination City" ng-model="c.truck.destination" />
-
-
-    </div>
-    <div>
-        <label>Trailer</label>
-        <input placeholder="R or V" ng-model="c.truck.trailerType" />
-
-    </div>
-    <div>
-        <label>Pick Up By</label>
-        <input placeholder="Pick Up Date (ex. Dec 12 )" ng-model="c.truck.shipDate" />
-
-    </div>
-    <div>
-        <label>Company</label>
-        <input placeholder="Company (ex. Dec 12 )" ng-model="c.truck.company" />
-
-    </div>
-    <input type="submit" class="btn btn-primary" value="Add Truck" />
+<!--//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+<!--//TruckModal-->
+<div class="container">
+    <button type="button" ng-click="c.truckModal(truckId)" class="btn btn-info-md" id="myBtn">Want to Add a Truck for Shippers to see?</button>
+</div>
 
 
 
-</form>
+
+
+
+
+

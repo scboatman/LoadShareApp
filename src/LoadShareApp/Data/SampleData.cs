@@ -24,6 +24,8 @@ namespace LoadShareApp.Data
             {
                 stephenB = new ApplicationUser
                 {
+                    FirstName   = "Stephen",
+                    LastName ="Boatman",
                     UserName = "scboatman",
                     Email = "scboatman@outlook.com"
                 };
@@ -41,6 +43,8 @@ namespace LoadShareApp.Data
                 // create user
                 stephen = new ApplicationUser
                 {
+                    FirstName = "Stephen",
+                    LastName =  "Walthers",
                     UserName = "Stephen.Walther@CoderCamps.com",
                     Email = "Stephen.Walther@CoderCamps.com"
                 };
@@ -57,6 +61,8 @@ namespace LoadShareApp.Data
                 // create user
                 mike = new ApplicationUser
                 {
+                    FirstName = "Mike",
+                    LastName = "Coder",
                     UserName = "Mike@CoderCamps.com",
                     Email = "Mike@CoderCamps.com"
                 };

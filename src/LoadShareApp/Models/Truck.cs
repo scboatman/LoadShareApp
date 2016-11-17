@@ -15,7 +15,7 @@ namespace LoadShareApp.Models
         public string TrailerType { get; set; }
         public string ShipDate { get; set; }
         public string Company { get; set; }
-        public Location Origins { get; set; }
+        
 
     }
 }

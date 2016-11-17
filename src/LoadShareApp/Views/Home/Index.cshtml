@@ -1,6 +1,7 @@
 <html ng-app="LoadShareApp">
 <head>
     <title>LoadShareApp</title>
+    @*<a href="/" ng-show="account.getClaim('isAdmin')">Home</a>*@
     <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="/bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -10,11 +11,13 @@
     <div class="container">
         <h1>LoadShareApp</h1>
         <div>
-          <a href="/">Home</a> |
-            <a href="/trucks">Trucks</a>|
-            <a href="/loads">Loads</a>
+            <div @*ng-show="account.isLoggedIn()"*@>
+                <a href="/home">Home</a> |
+                <a href="/trucks">Trucks</a>|
+                <a href="/loads">Loads</a>
 
-           | <a href="/secret">Secret</a> |
+                | <a href="/secret">Secret</a> |
+            </div>
            <a href="/login" ng-show="!account.isLoggedIn()">Login</a>
            <a href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()">Logout</a>
            <div ng-show="account.isLoggedIn()">

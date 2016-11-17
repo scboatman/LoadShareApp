@@ -98,11 +98,18 @@ namespace LoadShareApp {
                 controller: LoadShareApp.Controllers.AddTruckController,
                 controllerAs: 'c'
             })
+           
+            .state('profile', {
+                url: '/profile',
+                templateUrl: '/ngApp/views/profile.html',
+                controller: LoadShareApp.Controllers.ProfileController,
+                controllerAs: 'c'
+            })
 
 
 
         // Handle request for non-existent route
-        $urlRouterProvider.otherwise('/notFound');
+        $urlRouterProvider.otherwise('/');
 
         // Enable HTML5 navigation
         $locationProvider.html5Mode(true);
