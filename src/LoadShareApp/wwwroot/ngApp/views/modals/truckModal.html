@@ -1,36 +1,39 @@
-﻿<form ng-submit="c.saveTruck()">
+﻿<link rel="stylesheet" href="../../../css/site.css" />
+<legend>Enter Truck Info:</legend>
+<form id="truckModal" ng-submit="c.saveTruck()">
+    
     <div>
-        <label>Origin</label>
-        <input placeholder="Origin City" ng-model="c.truck.origin" />
+        <label>Origin</label><br>
+        <input  placeholder="Origin City" ng-model="c.truck.origin" />
     </div>
     <div>
-        <label>State</label>
-        <input placeholder="Origin City" ng-model="c.truck.originState" />
+        <label>State</label><br>
+        <input  placeholder="Origin State" ng-model="c.truck.originState" />
     </div>
     <div>
-        <label>Destination</label>
+        <label>Destination</label><br>
         <input placeholder="Destination City" ng-model="c.truck.destination" />
 
 
     </div>
     <div>
-        <label>State</label>
-        <input placeholder="Destination City" ng-model="c.truck.destinationState" />
+        <label>State</label><br>
+        <input placeholder="Destination State" ng-model="c.truck.destinationState" />
 
 
     </div>
     <div>
-        <label>Trailer</label>
+        <label>Trailer</label><br>
         <input placeholder="R or V" ng-model="c.truck.trailerType" />
 
     </div>
     <div>
-        <label>Pick Up By</label>
+        <label>Pick Up By</label><br>
         <input placeholder="Pick Up Date (ex. Dec 12 )" ng-model="c.truck.shipDate" />
 
     </div>
     <div>
-        <label>Company</label>
+        <label>Company</label><br>
         <input placeholder="Company (ex. Dec 12 )" ng-model="c.truck.company" />
 
     </div>

@@ -16,8 +16,37 @@ select,
 textarea {
     max-width: 280px;
 }
+#login{
 
-/* Carousel */
+
+
+}
+
+#loadModal{
+    background-image:url("http://il9.picdn.net/shutterstock/videos/3454226/thumb/1.jpg");
+    background-size: cover;
+}
+
+#addTruckBackground{
+    height: 100%;
+    background-image: url(http://www.je-express.com/truck.jpg);
+    background-size: cover;
+
+}
+#addLoadBackground{
+    height: 100%;
+    background-image: url(http://morrisnewsservice.com/ports_project/images/photos/040403TugBoatssab.jpg);
+    background-size: cover;
+
+}
+
+#truckModal{
+    background-image: url(http://www.je-express.com/truck.jpg);
+    background-size: contain;
+
+}
+
+/* Carousel */background-size: cover;
 .carousel-caption {
     z-index: 10 !important;
 }

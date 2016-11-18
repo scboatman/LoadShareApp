@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using LoadShareApp.Data;
 using LoadShareApp.Models;
 using Microsoft.AspNetCore.Authorization;
+using LoadShareApp.Services;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -15,10 +16,10 @@ namespace LoadShareApp.Controllers
     [Route("api/[controller]")]
     public class LocationsController : Controller
     {
-        private ApplicationDbContext _db;
-        public  LocationsController(ApplicationDbContext db)
+        private ILocationService _service;
+        public  LocationsController(ILocationService service)
         {
-            this._db = db;
+            this._service = service;
         }
         //Get: api/values
         [HttpGet]
@@ -27,18 +28,8 @@ namespace LoadShareApp.Controllers
         //get all loads and the locations associated with them
         public IEnumerable<Location> Get()
         {
-            var locations = (from c in _db.Locations
-                              select new Location
-                              {
-                                  Name = c.Name,
-                                  Loads = (from l in c.Loads
-                                            select new Load
-                                            {
-                                                Origin = l.Origin,
-                                                Destination = l.Destination,
-                                            }).ToList()
-                              }).ToList();
-            return locations;
+            return this._service.GetAllLocations();
+           
         }
     }
 }

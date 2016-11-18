@@ -38,10 +38,10 @@ namespace LoadShareApp {
                 controllerAs: 'c'
 
             })
-            .state('secret', {
-                url: '/secret',
-                templateUrl: '/ngApp/views/secret.html',
-                controller: LoadShareApp.Controllers.SecretController,
+            .state('locations', {
+                url: '/locations',
+                templateUrl: '/ngApp/views/locations.html',
+                controller: LoadShareApp.Controllers.LocationsController,
                 controllerAs: 'c'
             })
             .state('login', {

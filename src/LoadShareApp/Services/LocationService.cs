@@ -12,7 +12,7 @@ namespace LoadShareApp.Services
         private IGenericRepository _repo;
 
         //Get all Loads (called by controller Get() method)
-        public IList<Location> GetAllLocations()
+        public List<Location> GetAllLocations()
         {
             return _repo.Query<Location>().ToList();
         }

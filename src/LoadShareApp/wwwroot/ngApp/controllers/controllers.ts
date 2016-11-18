@@ -410,19 +410,25 @@ namespace LoadShareApp.Controllers {
 
 
     }
-    export class SecretController {
+    export class LocationsController {
         public locations;
+        public LocationResource;
         public LoadResource;
         public loads;
-        public getLoads() {
-            this.loads = this.LoadResource.query()
+        public getLocations() {
+            this.locations = this.LocationResource.query();
+            console.log(this.locations);            
+           
         }
 
 
-        constructor($http: ng.IHttpService) {
-            $http.get('/api/secrets').then((results) => {
-                this.locations = results.data;
-            });
+        constructor(private $resource: angular.resource.IResourceService) {
+            this.LocationResource = this.$resource('/api/locations');
+            this.getLocations();
+            
+            //$http.get('/api/secrets').then((results) => {
+            //    this.locations = results.data;
+            //});
         }
     }
     export class ProfileController {

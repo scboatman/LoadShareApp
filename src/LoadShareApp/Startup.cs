@@ -60,6 +60,7 @@ namespace LoadShareApp
             services.AddScoped<ITruckDetailService, TruckDetailService>();
             services.AddScoped<ILoadDetailService, LoadDetailService>();
             services.AddScoped<ILoadService, LoadService>();
+            services.AddScoped<ILocationService, LocationService>();
 
 
 
