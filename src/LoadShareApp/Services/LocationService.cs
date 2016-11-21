@@ -24,7 +24,7 @@ namespace LoadShareApp.Services
             return _repo.Query<Location>().Where(l => l.Id == id).FirstOrDefault();
         }
 
-        //Post single Location to the database (called by the Post(load) method)
+        //Post single Location to the database (called by the Post(location) method)
         public void SaveLoad(Location location)
         {
             if (location.Id == 0)

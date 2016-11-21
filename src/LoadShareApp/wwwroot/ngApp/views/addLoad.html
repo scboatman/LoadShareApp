@@ -1,60 +1,66 @@
-﻿<<form ng-submit="c.save()">
-    <div>
-        <label>Age</label>
-        <input placeholder="Age (ex. 8m for 8 months)" ng-model="c.load.age" />
+﻿<link rel="stylesheet" href="../../../css/site.css" />
+<legend>Add A Load</legend>
+<div class="container-fluid" id="addLoadBackground2">
+    <div class="col-lg-8 col-lg-offset-2">
+        <form id="addLoadBackground2" ng-submit="c.save()">
+            <div>
+                <label>Age</label>
+                <input placeholder="Age (ex. 8m for 8 months)" ng-model="c.load.age" />
 
-    </div>
-    <div>
-        <label>Miles</label>
-        <input placeholder="Miles" ng-model="c.load.miles" />
-    </div>
-    <div>
-        <label>Origin</label>
-        <input placeholder="Origin City" ng-model="c.load.origin" />
-    </div>
-     <div>
-         <label>State</label>
-         <input placeholder="Origin State" ng-model="c.load.originState" />
-     </div>
-    <div>
-        <label>Destination</label>
-        <input placeholder="Destination City" ng-model="c.load.destination" />
-    </div>
-     <div>
-         <label>State</label>
-         <input placeholder="Destination State" ng-model="c.load.destinationState" />
-     </div>
-    <div>
-        <label>Trailer</label>
-        <input placeholder="R of V" ng-model="c.load.trailerType" />
-    </div>
-    <div>
-        <label>Load Size</label>
-        <input placeholder="Load Size" ng-model="c.load.loadSize" />
-    </div>
-    <div>
-        <label>Length</label>
-        <input placeholder="Truck Length Needed" ng-model="c.load.length" />
-    </div>
-    <div>
-        <label>Weight</label>
-        <input placeholder="Load Weight" ng-model="c.load.weight" />
-    </div>
-    <div>
-        <label>Pay Rate</label>
-        <input placeholder="Pay Rate" ng-model="c.load.payRate" />
-    </div>
-    <div>
-        <label>Pick Up By</label>
-        <input placeholder="Pick Up Date (ex. Dec 12)" ng-model="c.load.shipDate" />
-    </div>
-    <div>
-        <label>Company</label>
-        <input placeholder="Company Name" ng-model="c.load.company" />
-    </div>
-     <input type="submit" class="btn btn-primary" value="Add Load" />
+            </div>
+            <div>
+                <label>Miles</label>
+                <input placeholder="Miles" ng-model="c.load.miles" />
+            </div>
+            <div>
+                <label>Origin</label>
+                <input placeholder="Origin City" ng-model="c.load.origin" />
+            </div>
+            <div>
+                <label>State</label>
+                <input placeholder="Origin State" ng-model="c.load.originState" />
+            </div>
+            <div>
+                <label>Destination</label>
+                <input placeholder="Destination City" ng-model="c.load.destination" />
+            </div>
+            <div>
+                <label>State</label>
+                <input placeholder="Destination State" ng-model="c.load.destinationState" />
+            </div>
+            <div>
+                <label>Trailer</label>
+                <input placeholder="R of V" ng-model="c.load.trailerType" />
+            </div>
+            <div>
+                <label>Load Size</label>
+                <input placeholder="Load Size" ng-model="c.load.loadSize" />
+            </div>
+            <div>
+                <label>Length</label>
+                <input placeholder="Truck Length Needed" ng-model="c.load.length" />
+            </div>
+            <div>
+                <label>Weight</label>
+                <input placeholder="Load Weight" ng-model="c.load.weight" />
+            </div>
+            <div>
+                <label>Pay Rate</label>
+                <input placeholder="Pay Rate" ng-model="c.load.payRate" />
+            </div>
+            <div>
+                <label>Pick Up By</label>
+                <input placeholder="Pick Up Date (ex. Dec 12)" ng-model="c.load.shipDate" />
+            </div>
+            <div>
+                <label>Company</label>
+                <input placeholder="Company Name" ng-model="c.load.company" />
+            </div>
+            <input type="submit" class="btn btn-primary" value="Add Load" />
 
-</form>
+        </form>
+    </div>
+</div>
 
 
          

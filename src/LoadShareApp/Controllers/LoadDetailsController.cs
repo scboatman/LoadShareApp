@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using LoadShareApp.Models;
 using LoadShareApp.Services;
+using Microsoft.AspNetCore.Authorization;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -31,6 +32,7 @@ namespace LoadShareApp.Controllers
 
         //add a loadDetail or update an existing load
         [HttpPost]
+        
         public IActionResult Post([FromBody]LoadDetail LoadDetail)
         {
             LoadDetail loadDetail = null;
@@ -41,6 +43,7 @@ namespace LoadShareApp.Controllers
 
 
         [HttpDelete("{id}")]
+        [Authorize(Policy = "AdminOnly")]
         public IActionResult Delete(int id)
         {
 

@@ -39,7 +39,11 @@ textarea {
     background-size: cover;
 
 }
-
+#addLoadBackground2 {
+    height: 100%;
+    background-image: url(http://morrisnewsservice.com/ports_project/images/photos/040403TugBoatssab.jpg);
+    background-size: contain;
+}
 #truckModal{
     background-image: url(http://www.je-express.com/truck.jpg);
     background-size: contain;
