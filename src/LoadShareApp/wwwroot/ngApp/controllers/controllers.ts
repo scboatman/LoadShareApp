@@ -144,7 +144,7 @@ namespace LoadShareApp.Controllers {
             private $uibModal: angular.ui.bootstrap.IModalService) {//LoadMOdal logic
             this.TruckDetailResource = this.$resource('/api/trucks/:id');
             this.getTruck($stateParams["id"]);
-            this.LoadResource = $resource('/api/loads/:id');
+            this.LoadResource = this.$resource('/api/loads/:id');
             
 
         }
