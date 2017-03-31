@@ -5,7 +5,42 @@
     Add Truck
 </a>
 
-<table class="table table-striped table-hover">
+<div id="carousel" class="carousel slide carousel-fade" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carousel" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel" data-slide-to="1"></li>
+        <li data-target="#carousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="active item"></div>
+        <div class="item">Origin</div>
+        <div class="item">State</div>
+        <div class="item">Destination</div>
+        <div class="item">State</div>
+        <div class="item">Trailer</div>
+        <div class="item">Ship Date</div>
+        <div class="item">Company</div>
+        <div class="item">Action</div>
+        <div class="item">Action</div>
+
+    </div>
+    <div class="info" ng-repeat="truck in c.trucks">
+        <div class="item">{{truck.origin}}</div>
+        <div class="item">{{truck.originState}}</div>
+        <div class="item">{{truck.destination}}</div>
+        <div class="item">{{truck.destinationState}}</div>
+        <div class="item">{{truck.trailerType}}</div>
+        <div class="item">{{truck.shipDate}}</div>
+        <div class="item">{{truck.company}}</div>
+        <div class="item"><a ng-href="/editTruck/{{truck.id}}" class="btn btn-primary">Edit</a></div>
+        <
+        <div class="item"><a ng-href="/deleteTruck/{{truck.id}}" class="btn btn-danger">Delete</a></div>
+    </div>
+    <a class="carousel-control left" href="#carousel" data-slide="prev">&lsaquo;</a>
+    <a class="carousel-control right" href="#carousel" data-slide="next">&rsaquo;</a>
+</div>
+
+    <!--<table class="table table-striped table-hover">
         <thread>
             <tr class="alert-info">
                 <th>Origin</th>
@@ -18,10 +53,10 @@
                 <th>Action</th>
                 <th>Action</th>
             </tr>
-            </thread>
+        </thread>-->
 
 
-            <thread>
+        <!--<thread>
             <tbody>
                 <tr class="info" ng-repeat="truck in c.trucks">
                     <td>{{truck.origin}}</td>
@@ -32,11 +67,13 @@
                     <td>{{truck.shipDate}}</td>
                     <td>{{truck.company}}</td>
                     <td><a ng-href="/editTruck/{{truck.id}}" class="btn btn-primary">Edit</a></td>
-                    <<td><a ng-href="/deleteTruck/{{truck.id}}" class="btn btn-danger">Delete</a></td>
+                    <
+                    <td><a ng-href="/deleteTruck/{{truck.id}}" class="btn btn-danger">Delete</a></td>
                 </tr>
             </tbody>
-        </thread>
+        </thread>-->
     </table>
+</div>
 
 
 

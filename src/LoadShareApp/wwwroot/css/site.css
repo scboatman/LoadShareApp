@@ -1,67 +1,53 @@
-body {
-    padding-top: 50px;
-    padding-bottom: 20px;
-}
+.carousel-fade {
+    .carousel-inner {
+        .item {
+            transition-property: opacity;
+        }
+        
+        .item,
+        .active.left,
+        .active.right {
+            opacity: 0;
+        }
 
-/* Wrapping element */
-/* Set some basic padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
-}
+        .active,
+        .next.left,
+        .prev.right {
+            opacity: 1;
+        }
 
-/* Set widths on the form inputs since otherwise they're 100% wide */
-input,
-select,
-textarea {
-    max-width: 280px;
-}
-#login{
-
-
-
-}
-
-#loadModal{
-    background-image:url("http://il9.picdn.net/shutterstock/videos/3454226/thumb/1.jpg");
-    background-size: cover;
-}
-
-#addTruckBackground{
-    height: 100%;
-    background-image: url(http://www.je-express.com/truck.jpg);
-    background-size: cover;
-
-}
-#addLoadBackground{
-    height: 100%;
-    background-image: url(http://morrisnewsservice.com/ports_project/images/photos/040403TugBoatssab.jpg);
-    background-size: cover;
-
-}
-#addLoadBackground2 {
-    height: 100%;
-    background-image: url(http://morrisnewsservice.com/ports_project/images/photos/040403TugBoatssab.jpg);
-    background-size: contain;
-}
-#truckModal{
-    background-image: url(http://www.je-express.com/truck.jpg);
-    background-size: contain;
-
-}
-
-/* Carousel */background-size: cover;
-.carousel-caption {
-    z-index: 10 !important;
-}
-
-    .carousel-caption p {
-        font-size: 20px;
-        line-height: 1.4;
+        .next,
+        .prev,
+        .active.left,
+        .active.right {
+            left: 0;
+            transform: translate3d(0, 0, 0);
+        }
     }
 
-@media (min-width: 768px) {
-    .carousel-caption {
-        z-index: 10 !important;
+    .carousel-control {
+        z-index: 2;
     }
+}
+
+
+
+html, 
+body, 
+.carousel, 
+.carousel-inner, 
+.carousel-inner .item {
+    height: 100%;
+}
+
+.item:nth-child(1) {
+    background: #74C390;
+}
+
+.item:nth-child(2) {
+    background: #51BCE8;
+}
+
+.item:nth-child(3) {
+    background: #E46653;
 }
